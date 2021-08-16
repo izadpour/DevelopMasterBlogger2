@@ -1,0 +1,14 @@
+G:\DevelopMasterBlogger\MasterBlogger\MB.Application\bin\Debug\netcoreapp3.1\MB.Application.deps.json
+G:\DevelopMasterBlogger\MasterBlogger\MB.Application\bin\Debug\netcoreapp3.1\MB.Application.dll
+G:\DevelopMasterBlogger\MasterBlogger\MB.Application\bin\Debug\netcoreapp3.1\MB.Application.pdb
+G:\DevelopMasterBlogger\MasterBlogger\MB.Application\bin\Debug\netcoreapp3.1\MB.Application.Contracts.dll
+G:\DevelopMasterBlogger\MasterBlogger\MB.Application\bin\Debug\netcoreapp3.1\MB.Domain.dll
+G:\DevelopMasterBlogger\MasterBlogger\MB.Application\bin\Debug\netcoreapp3.1\MB.Application.Contracts.pdb
+G:\DevelopMasterBlogger\MasterBlogger\MB.Application\bin\Debug\netcoreapp3.1\MB.Domain.pdb
+G:\DevelopMasterBlogger\MasterBlogger\MB.Application\obj\Debug\netcoreapp3.1\MB.Application.csprojAssemblyReference.cache
+G:\DevelopMasterBlogger\MasterBlogger\MB.Application\obj\Debug\netcoreapp3.1\MB.Application.AssemblyInfoInputs.cache
+G:\DevelopMasterBlogger\MasterBlogger\MB.Application\obj\Debug\netcoreapp3.1\MB.Application.AssemblyInfo.cs
+G:\DevelopMasterBlogger\MasterBlogger\MB.Application\obj\Debug\netcoreapp3.1\MB.Application.csproj.CoreCompileInputs.cache
+G:\DevelopMasterBlogger\MasterBlogger\MB.Application\obj\Debug\netcoreapp3.1\MB.Application.csproj.CopyComplete
+G:\DevelopMasterBlogger\MasterBlogger\MB.Application\obj\Debug\netcoreapp3.1\MB.Application.dll
+G:\DevelopMasterBlogger\MasterBlogger\MB.Application\obj\Debug\netcoreapp3.1\MB.Application.pdb
