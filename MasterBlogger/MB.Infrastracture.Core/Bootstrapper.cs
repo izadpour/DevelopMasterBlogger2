@@ -15,6 +15,8 @@ namespace MB.Infrastracture.Core
         {
             services.AddTransient<IArticleCategoryApplication, ArticleCategoryApplication>();
             services.AddTransient<IArticleCategoryRepository, ArticleCategoryRepository>();
+
+
             services.AddDbContext<MasterBloggerContext>(option =>
                 option.UseSqlServer(connectionString));
         }

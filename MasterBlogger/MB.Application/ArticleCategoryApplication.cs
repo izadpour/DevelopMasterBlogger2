@@ -1,5 +1,6 @@
 ﻿using MB.Application.Contracts.ArticleCategory;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using MB.Domain.ArticleCategoryAgg;
 
@@ -31,6 +32,46 @@ namespace MB.Application
             }
 
             return result;
+        }
+
+        public void Create(ArticleCategoryCreate command)
+        {
+            ArticleCategory articleCategory = new ArticleCategory(command.Title);
+           
+           _articleCategoryRepository.Add(articleCategory);
+        }
+
+        public void Rename(ArticleCategoryRename command)
+        {
+           var articleCategory =  _articleCategoryRepository.GetBy(command.Id);
+           articleCategory.Rename(command.Title);
+           _articleCategoryRepository.Save();
+
+        }
+
+        public ArticleCategoryRename GetBy(long id)
+        {
+            var articleCategory = _articleCategoryRepository.GetBy(id);
+            return new ArticleCategoryRename
+            {
+                 Id = articleCategory.Id,
+                 Title = articleCategory.Title
+            };
+
+        }
+
+        public void Remove(long id)
+        {
+           var articleCategory =  _articleCategoryRepository.GetBy(id);
+           articleCategory.Remove();
+           _articleCategoryRepository.Save();
+        }
+
+        public void Active(long id)
+        {
+            var articleCategory = _articleCategoryRepository.GetBy(id);
+            articleCategory.Active();
+            _articleCategoryRepository.Save();
         }
     }
 }

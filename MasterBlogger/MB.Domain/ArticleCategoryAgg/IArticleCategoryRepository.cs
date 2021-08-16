@@ -4,9 +4,12 @@ namespace MB.Domain.ArticleCategoryAgg
 {
     public interface IArticleCategoryRepository
     {
-        void Create(ArticleCategory entity);
-        ArticleCategory GetBy(long Id);
+        void Add(ArticleCategory entity);
+        ArticleCategory GetBy(long id);
 
         List<ArticleCategory> GetAll();
+      
+
+        void Save();
     }
 }

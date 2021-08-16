@@ -13,21 +13,29 @@ namespace MB.Infrastructure.EFCore.Repositories
             _context = context;
         }
 
-        public void Create(ArticleCategory entity)
+        public void Add(ArticleCategory entity)
         {
             _context.ArticleCategories.Add(entity);
-            _context.SaveChanges();
+            Save();
         }
 
-        public ArticleCategory GetBy(long Id)
+        public ArticleCategory GetBy(long id)
         {
-            var result = _context.ArticleCategories.Find(Id);
+            var result = _context.ArticleCategories.Find(id);
             return result;
         }
 
         public List<ArticleCategory> GetAll()
         {
-            return _context.ArticleCategories.ToList();
+            var result = _context.ArticleCategories.OrderByDescending(x => x.Id).ToList();
+            return result;
+        }
+
+       
+
+        public void Save()
+        {
+            _context.SaveChanges();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace MB.Presentation.MVCCore.Areas.Administrator.Pages.ArticleCategoryManag
 {
     public class ListModel : PageModel
     {
-        public List<ArticleCategoryViewModel> ArticleCategoryViewModels { get; set; }
+        public List<ArticleCategoryViewModel> ArticleCategoryViewModels = new List<ArticleCategoryViewModel>();
         private readonly IArticleCategoryApplication _articleCategoryApplication;
 
         public ListModel(IArticleCategoryApplication articleCategoryApplication)
@@ -21,6 +21,18 @@ namespace MB.Presentation.MVCCore.Areas.Administrator.Pages.ArticleCategoryManag
         public void OnGet()
         {
             ArticleCategoryViewModels = _articleCategoryApplication.List();
+        }
+        public RedirectToPageResult OnPostRemove(long id)
+        {
+            _articleCategoryApplication.Remove(id);
+            return RedirectToPage("./List");
+        }
+
+        public RedirectToPageResult OnPostActivate(long id)
+        {
+            _articleCategoryApplication.Active(id);
+            return RedirectToPage("./List");
+
         }
     }
 }
