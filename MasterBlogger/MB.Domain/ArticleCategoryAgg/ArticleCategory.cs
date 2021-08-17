@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MB.Domain.ArticleCategoryAgg.Service;
 
 namespace MB.Domain.ArticleCategoryAgg
 {
@@ -11,15 +12,27 @@ namespace MB.Domain.ArticleCategoryAgg
         public DateTime CreationDate { get; private set; }
         public bool IsDeleted { get; private set; }
 
-        public ArticleCategory(string title)
+        protected ArticleCategory()
         {
+        }
+        public ArticleCategory(string title,IArticleCategoryValidatorService articleCategoryValidatorService)
+        {
+            GuardAgainstEmptyTitle(title);
+            articleCategoryValidatorService.CheckThatThisRecordAlreadyExists(title);
             Title = title;
             CreationDate=DateTime.Now;
             IsDeleted = false;
         }
 
+        public void GuardAgainstEmptyTitle(string title)
+        {
+            if (string.IsNullOrWhiteSpace(title))
+                throw new ArgumentNullException();
+        }
+
         public void Rename(string title)
         {
+            GuardAgainstEmptyTitle(title);
             Title = title;
         }
 

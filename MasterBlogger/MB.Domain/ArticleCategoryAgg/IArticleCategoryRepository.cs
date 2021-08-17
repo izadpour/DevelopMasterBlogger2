@@ -8,7 +8,8 @@ namespace MB.Domain.ArticleCategoryAgg
         ArticleCategory GetBy(long id);
 
         List<ArticleCategory> GetAll();
-      
+
+        bool Exists(string title);
 
         void Save();
     }

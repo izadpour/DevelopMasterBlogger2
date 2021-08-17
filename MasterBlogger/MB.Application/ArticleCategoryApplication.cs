@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using MB.Domain.ArticleCategoryAgg;
+using MB.Domain.ArticleCategoryAgg.Service;
 
 namespace MB.Application
 {
     public class ArticleCategoryApplication : IArticleCategoryApplication
     {
         private readonly IArticleCategoryRepository _articleCategoryRepository;
+        public readonly IArticleCategoryValidatorService _articleCategoryValidatorService;
 
-        public ArticleCategoryApplication(IArticleCategoryRepository articleCategoryRepository)
+        public ArticleCategoryApplication(IArticleCategoryRepository articleCategoryRepository, IArticleCategoryValidatorService articleCategoryValidatorService)
         {
             _articleCategoryRepository = articleCategoryRepository;
+            _articleCategoryValidatorService = articleCategoryValidatorService;
         }
 
         public List<ArticleCategoryViewModel> List()
@@ -36,7 +39,7 @@ namespace MB.Application
 
         public void Create(ArticleCategoryCreate command)
         {
-            ArticleCategory articleCategory = new ArticleCategory(command.Title);
+            ArticleCategory articleCategory = new ArticleCategory(command.Title,_articleCategoryValidatorService);
            
            _articleCategoryRepository.Add(articleCategory);
         }
